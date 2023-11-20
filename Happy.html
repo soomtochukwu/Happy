@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Happy</title>
+</head>
+<body>
+	<script type="text/javascript">
+		let
+		red, green, blue,
+		rand = () => { 
+			 red = Math.floor(Math.random() * 255);
+			 green = Math.floor(Math.random() * 255);
+			 blue = Math.floor(Math.random() * 255);
+			 return 0
+		},
+		pos = "-.5em",
+		left = "-.3em",
+		body = document.getElementsByTagName("body")[0],
+		content = `i am happy`.toUpperCase(),
+		h1 = document.createElement("h1"),
+		span = document.createElement("h1"),
+		marquee = document.createElement("marquee"),
+		a = document.createElement("a");
+		;
+
+		h1.innerText = content;
+		span.innerHTML = "time to work".toUpperCase();
+
+		a.href = window.location.href;
+		a.innerHTML = "reload";
+		// setTimeout(() => {a.click()}, 1000);
+
+
+		window.onload = () => {
+			body.appendChild(h1);
+			body.appendChild(span);
+		};
+
+
+		rand()
+		body.style.textAlign = "center"
+		body.style.backgroundColor = "black"
+		body.style.color = `rgb(${red}, ${green}, ${blue})`;
+		body.style.overflow = "hidden";
+		body.style.transition = ".2s";
+
+		h1.style.transition = "1.7s";
+		h1.style.fontSize = "25vh";
+		h1.style.position = "relative";
+		body.style.position = "relative";
+
+		setTimeout(() => {
+			h1.style.top = "0em";
+			setInterval(() => {
+
+				rand();
+				h1.style.color = `rgb(${red}, ${green}, ${blue})`;
+				span.style.color = `rgb(${red}, ${green}, ${blue})`;
+
+				h1.style.top = pos;
+				if(pos == "-.5em"){
+					pos = "1em"
+				}else{
+					pos = "-.5em"
+				}
+			},300);
+		},300);
+
+		setTimeout(() => {
+			body.style.left = "0em";
+			setInterval(() => {
+				body.style.left = left;
+				if(left == "-.3em"){
+					left = "1.3em"
+				}else{
+					left = "-.3em"
+				}
+			},100);
+		},300)
+
+	</script>
+</body>
+</html>
